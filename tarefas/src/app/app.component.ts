@@ -19,6 +19,14 @@ export class AppComponent {
     url: 'tarefas/nova', 
     icon: 'document' 
   },
+    { title: 'Cadastro', 
+    url: 'cadastro', 
+    icon: 'person' 
+  },
+    { title: 'Cadastrados', 
+    url: 'cadastrados', 
+    icon: 'people' 
+  },
 
   ];
   public labels = ['Family', 'Friends', 'Notes', 'Work', 'Travel', 'Reminders'];

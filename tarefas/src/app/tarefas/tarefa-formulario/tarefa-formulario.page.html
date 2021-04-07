@@ -14,11 +14,13 @@
       <ion-item>
         
         <ion-label position="stacked">Título: </ion-label>
-        <ion-input [(ngModel)] = "tarefa.title" name = 'title'></ion-input>
+        <ion-input [(ngModel)] = "tarefa.title" name = 'title'
+        (input)="setTitle($event.target.value)"></ion-input>
       </ion-item> 
       <ion-item>
         <ion-label position="stacked">Descrição: </ion-label>
-        <ion-textarea [(ngModel)] = "tarefa.desc" name = 'desc'> </ion-textarea>
+        <ion-textarea [(ngModel)] = "tarefa.desc" name = 'desc'
+        (input)="setDesc($event.target.value)"> </ion-textarea>
       </ion-item>
   
       <ion-item>
@@ -27,7 +29,7 @@
   
       <ion-item>
         <div  >
-          <ion-button color ="secondary" expand = "block" type = "submit"> Salvar</ion-button>
+          <ion-button color ="secondary" expand = "block" type = "submit" (click)="getForm()"> Salvar</ion-button>
           <ion-button color ="warning" routerLink ="/tarefa/aberta" expand = "block" type = "submit">Cancelar </ion-button> 
         </div> 
       </ion-item>

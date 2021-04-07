@@ -27,6 +27,14 @@ const routes: Routes = [
   {
     path: 'tarefas/editar/:id',
     loadChildren: () => import('./tarefas/tarefa-formulario/tarefa-formulario.module').then( m => m.TarefaFormularioPageModule)
+  },
+  {
+    path: 'cadastro',
+    loadChildren: () => import('./cadastro/cadastro/cadastro.module').then( m => m.CadastroPageModule)
+  },
+  {
+    path: 'cadastrados',
+    loadChildren: () => import('./cadastro/cadastrados/cadastrados.module').then( m => m.CadastradosPageModule)
   }
 ];
 
