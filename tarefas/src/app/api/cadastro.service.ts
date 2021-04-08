@@ -1,7 +1,7 @@
-
+import { Cadastro } from './../cadastro/cadastro.model';
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { THIS_EXPR } from '@angular/compiler/src/output/output_ast';
+import { Observable } from 'rxjs';
 
 
 @Injectable({
@@ -16,14 +16,26 @@ export class CadastroService {
     this.http.post(this.baseUrl + '/users', user).toPromise();
   }
 
-  read(){
+  read(): Observable<Cadastro[]>{
+       return this.http.get<Cadastro[]>(this.baseUrl + '/users');
+   }
 
+  update(user:Cadastro):Observable<Cadastro>{
+    const url = `${this.baseUrl}/users/${user.id}`;
+    return this.http.put<Cadastro>(url, user)
   }
-  update(){
 
+  delete(id:number){
+    const url = `${this.baseUrl}/users/${id}`;
+    return this.http.delete<Cadastro>(url);
   }
-  delete(){
-
+  
+  
+  readById(id: number): Observable<Cadastro> {
+    const url = `${this.baseUrl}/users/${id}`;
+    return this.http.get<Cadastro>(url);
+    
+  
   }
 
 }

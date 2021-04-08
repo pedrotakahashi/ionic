@@ -9,6 +9,32 @@
   </ion-toolbar>
 </ion-header>
 
-<ion-content>
+<ion-content class="ion-margin">
+  <ion-grid class="ion-margin">
+    <ion-row>
+      <ion-col>ID</ion-col>
+      <ion-col>Nome</ion-col>
+      <ion-col>E-mail</ion-col>
+      <ion-col>Ação</ion-col>
+    </ion-row>
+    <ion-row *ngFor="let cadastro of cadastros">
+      <ion-col>{{ cadastro.id }}</ion-col>
+      <ion-col>{{ cadastro.name }}</ion-col>
+      <ion-col>{{ cadastro.email }}</ion-col>
+      <ion-col>
+        <ion-button (click) = "excluir(cadastro.id)" color ="danger">
+          <ion-icon name="locate-outline"></ion-icon>
+        </ion-button>
+      </ion-col>
+      <ion-col>
+        <ion-button (click) = "editar(cadastro.id)" color ="primary">
+          <ion-icon name="sad-outline"></ion-icon>
+        </ion-button>
+      </ion-col>
 
+    </ion-row>
+  </ion-grid>
+
+
+  
 </ion-content>

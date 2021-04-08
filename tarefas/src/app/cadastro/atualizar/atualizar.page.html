@@ -1,0 +1,34 @@
+<ion-header>
+  
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+    <ion-title>atualizar</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <form [formGroup] ="formulario"  (ngSubmit) = "atualizarUsuario()" >
+
+    <ion-item>
+      <ion-label position="stacked"> Nome: </ion-label>
+      <ion-input [value]= "user?.name" formControlName = "name"></ion-input>
+    </ion-item>
+    
+
+    <ion-item>
+      <ion-label position="stacked"> Email: </ion-label>
+      <ion-input [value]= "user?.email" formControlName = "email"></ion-input>
+    </ion-item>
+    <ion-item>
+      <div  >
+        <ion-button color ="secondary"  type= "submit" > Salvar</ion-button>
+        <ion-button color ="warning"  type = "button" (click)= "cancelar()">  Cancelar </ion-button> 
+      </div> 
+    </ion-item>
+    
+  </form>
+</ion-content>
+
+ 

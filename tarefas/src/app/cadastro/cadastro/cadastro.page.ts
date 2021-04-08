@@ -1,12 +1,11 @@
-import { CadastroService } from './../../api/cadastro.service';
-
-
 import { Component, OnInit } from '@angular/core';
-import { FormControl, FormGroup,FormBuilder } from '@angular/forms';
 import { Cadastro } from './../cadastro.model';
+import { CadastroService } from './../../api/cadastro.service';
+import { FormBuilder, FormGroup } from '@angular/forms';
+import { Router } from '@angular/router';
+
 
 export class User{
-
   nome: string;
   email: string
 }
@@ -16,9 +15,9 @@ export class User{
   templateUrl: './cadastro.page.html',
   styleUrls: ['./cadastro.page.scss'],
 })
+
 export class CadastroPage implements OnInit {
   formulario : FormGroup;
-
   cadastro: Cadastro ={
     name: null,
     email: null
@@ -26,17 +25,12 @@ export class CadastroPage implements OnInit {
 
   constructor(
     private formBuilder: FormBuilder,
-    private _cadService : CadastroService
+    private _cadService : CadastroService,
+    private router: Router,
    ) { }
 
   ngOnInit() {
-    //Sem form Builder
-    // this.formulario =  new FormGroup({
-    //   nome: new FormControl(null),
-    //   email: new FormControl(null),
-    // });
-
-
+ 
     //com FormBuilder
     this.formulario = this.formBuilder.group({
       nome:[null],
@@ -50,6 +44,7 @@ export class CadastroPage implements OnInit {
    let user = new User();
    Object.assign(user, this.formulario.value)
    this._cadService.create(user)
+   this.router.navigate(['/cadastrados'])
   }
   
 }

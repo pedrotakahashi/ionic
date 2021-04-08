@@ -1,12 +1,11 @@
+import { ExcluirPage } from './../excluir/excluir.page';
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
-
 import { IonicModule } from '@ionic/angular';
-
 import { CadastradosPageRoutingModule } from './cadastrados-routing.module';
-
 import { CadastradosPage } from './cadastrados.page';
+
 
 @NgModule({
   imports: [
@@ -15,6 +14,6 @@ import { CadastradosPage } from './cadastrados.page';
     IonicModule,
     CadastradosPageRoutingModule
   ],
-  declarations: [CadastradosPage]
+  declarations: [CadastradosPage, ExcluirPage]
 })
 export class CadastradosPageModule {}

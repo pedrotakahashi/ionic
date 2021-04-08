@@ -35,6 +35,14 @@ const routes: Routes = [
   {
     path: 'cadastrados',
     loadChildren: () => import('./cadastro/cadastrados/cadastrados.module').then( m => m.CadastradosPageModule)
+  },
+  {
+    path: 'leitura',
+    loadChildren: () => import('./cadastro/leitura/leitura.module').then( m => m.LeituraPageModule)
+  },
+  {
+    path: 'atualizar',
+    loadChildren: () => import('./cadastro/atualizar/atualizar.module').then( m => m.AtualizarPageModule)
   }
 ];
 
